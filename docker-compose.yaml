@@ -6,8 +6,8 @@ services:
         ports:
             - 3000:3000
         stdin_open: true
-        volumes:
-            - .\frontend:/usr/src/app
+#        volumes:
+#            - .\frontend:/usr/src/app
         container_name: frontend
         restart: always
         networks:
@@ -19,8 +19,8 @@ services:
         build:
             context: backend
             target: development
-        volumes:
-            - .\backend:/usr/src/app
+#        volumes:
+#            - .\backend:/usr/src/app
         networks:
             - react-express
             - express-mongo
@@ -30,20 +30,20 @@ services:
         container_name: mongo
         restart: always
         image: mongo
-        volumes:
-            - .\dbdata:/data/db
-            - .\dbconfig:/data/configdb
+#        volumes:
+#            - .\dbdata:/data/db
+#            - .\dbconfig:/data/configdb
         networks:
             - express-mongo
         expose:
             - 8081:8081
         ports:
             - 27017:27017
-volumes:
-    frontend:
-    backend:
-    dbdata:
-    dbconfig:
+#volumes:
+#    frontend:
+#    backend:
+#    dbdata:
+#    dbconfig:
 
 networks:
     react-express:
